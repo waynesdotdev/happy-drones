@@ -21,8 +21,11 @@ const CONFIG = {
   facebook: "https://www.facebook.com/happydrones",
   x:        "https://x.com/happydrones",
 
-  // Optional: send "Book a flight" to a booking page (Calendly, Google Form…).
-  // Leave "" to use email instead.
+  // Where customers leave reviews (your Google Business or Facebook reviews link).
+  reviewsUrl: "https://www.facebook.com/happydrones/reviews",
+
+  // Optional: send "Book a flight" to a booking page (Calendly, etc.).
+  // Leave "" to use the contact form on the page (or email if you deleted the form).
   bookingUrl: "",
 
   area: "Serving your city and nearby",             // e.g. "Serving Teesside and North Yorkshire"
@@ -47,18 +50,28 @@ const CONFIG = {
 
 /* ---------- Links ---------- */
 (function applyLinks() {
+  const form = document.querySelector("form.contact");
+  const serviceSelect = document.getElementById("service-select");
+
   const mail = (subject, body = "") =>
     `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}` +
     (body ? `&body=${encodeURIComponent(body)}` : "");
 
+  // "Book a flight": booking page → contact form on this page → email
+  const bookHref = CONFIG.bookingUrl || (form ? "#contact" :
+    (CONFIG.email ? mail("Booking a flight with Happy Drones",
+      "Hi! I'd like to book a flight.\n\nWhat I need filmed:\nLocation:\nPreferred date:\n") : ""));
+
   const links = {
-    book: CONFIG.bookingUrl || (CONFIG.email ? mail("Booking a flight with Happy Drones",
-      "Hi! I'd like to book a flight.\n\nWhat I need filmed:\nLocation:\nPreferred date:\n") : ""),
+    book: bookHref,
     text: CONFIG.phone ? `sms:${CONFIG.phone}` : "",
+    call: CONFIG.phone ? `tel:${CONFIG.phone}` : "",
+    email: CONFIG.email ? `mailto:${CONFIG.email}` : "",
     youtube: CONFIG.youtube,
     tiktok: CONFIG.tiktok,
     facebook: CONFIG.facebook,
     x: CONFIG.x,
+    reviews: CONFIG.reviewsUrl,
   };
 
   document.querySelectorAll("[data-link]").forEach((el) => {
@@ -67,15 +80,35 @@ const CONFIG = {
     else el.hidden = true;
   });
 
+  // Footer: show the email address and phone number as text
+  document.querySelectorAll("[data-show]").forEach((el) => {
+    const value = CONFIG[el.dataset.show];
+    if (value) el.textContent = value;
+    else el.hidden = true;
+  });
+
   if (CONFIG.bookingUrl) {
     const book = document.querySelector('[data-link="book"]');
     if (book) { book.target = "_blank"; book.rel = "noopener"; }
   }
 
+  // "Ask about…" and package buttons: jump to the form and pre-pick the service,
+  // or open an email if the form section was deleted.
   document.querySelectorAll("[data-ask]").forEach((el) => {
-    if (!CONFIG.email) { el.hidden = true; return; }
-    el.href = mail(`${el.dataset.ask} — Happy Drones`,
-      `Hi! I'm interested in: ${el.dataset.ask}.\n\nLocation:\nPreferred date:\n`);
+    const topic = el.dataset.ask;
+    if (form) {
+      el.href = "#contact";
+      el.addEventListener("click", () => {
+        if (!serviceSelect) return;
+        const match = [...serviceSelect.options].find((o) => o.text === topic);
+        serviceSelect.value = match ? match.value : "Something else";
+      });
+    } else if (CONFIG.email) {
+      el.href = mail(`${topic} — Happy Drones`,
+        `Hi! I'm interested in: ${topic}.\n\nLocation:\nPreferred date:\n`);
+    } else {
+      el.hidden = true;
+    }
   });
 
   document.querySelectorAll("[data-field]").forEach((el) => {
@@ -84,9 +117,31 @@ const CONFIG = {
     else el.hidden = true;
   });
 
-  const year = document.getElementById("year");
-  if (year) year.textContent = new Date().getFullYear();
+  document.querySelectorAll(".year, #year").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+
+  // Don't let people pick a date in the past
+  const date = document.getElementById("date-input");
+  if (date) date.min = new Date().toISOString().split("T")[0];
 })();
+
+/* ---------- Photos you haven't added yet show a placeholder ---------- */
+const PILOT_PLACEHOLDER = "data:image/svg+xml," + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#003366"/>' +
+  '<circle cx="48" cy="38" r="17" fill="#FF6B35"/><path d="M16 92c3-20 16-30 32-30s29 10 32 30z" fill="#FF6B35"/></svg>');
+
+document.querySelectorAll(".work img, .pilot").forEach((img) => {
+  const mark = () => {
+    if (img.classList.contains("pilot")) {
+      if (img.src !== PILOT_PLACEHOLDER) img.src = PILOT_PLACEHOLDER;
+      return;
+    }
+    img.closest(".work").classList.add("missing");
+  };
+  if (img.complete && img.naturalWidth === 0) mark();
+  else img.addEventListener("error", mark);
+});
 
 /* ---------- YouTube video ----------
    Shows a thumbnail first and only loads the YouTube player when tapped,

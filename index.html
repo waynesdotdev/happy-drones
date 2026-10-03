@@ -10,23 +10,45 @@
   <meta property="og:title" content="Happy Drones" />
   <meta property="og:description" content="Aerial photo, video and FPV fly-throughs. Book a flight or follow along." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/logo.png" />
+  <meta property="og:image" content="https://www.yourdomain.co.uk/assets/logo.png" />  <!-- use your full web address -->
 
   <link rel="icon" href="assets/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/favicon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@400;600;700;800&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
 
+
+  <!-- Helps Google show your business details. Edit the values once you know them. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Happy Drones",
+    "description": "Aerial photo and video, plus FPV fly-through tours.",
+    "url": "https://www.yourdomain.co.uk/",
+    "logo": "https://www.yourdomain.co.uk/assets/logo.png",
+    "email": "hello@yourdomain.co.uk",
+    "areaServed": "Your area",
+    "sameAs": [
+      "https://www.youtube.com/@happydrones",
+      "https://www.tiktok.com/@happydrones",
+      "https://www.facebook.com/happydrones",
+      "https://x.com/happydrones"
+    ]
+  }
+  </script>
+
+  <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body id="top">
 
   <!-- Full-page background: the desk scene, softened so the links stay readable -->
-  <!-- <div class="scene" aria-hidden="true">
+  <div class="scene" aria-hidden="true">
     <img src="assets/scene.svg" alt="" />
-  </div> -->
+  </div>
 
   <button class="share" type="button" aria-label="Share this page">
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -34,15 +56,9 @@
   </button>
 
   <main class="stack">
-
-    <!-- Cover: the drones on the desk, waiting to fly -->
-    <!-- <div class="cover" aria-hidden="true">
-      <img src="assets/scene.svg" alt="" />
-    </div> -->
-
     <header class="profile">
       <div class="logo-plate">
-        <img class="logo" src="3.png" alt="Happy Drones" width="1407" height="489" />
+        <img class="logo" src="assets/logo.png" alt="Happy Drones" width="1407" height="489" />
       </div>
       <h1>Happy Drones</h1>
       <p class="tagline">Aerial photo and video, plus FPV fly-throughs that take people right inside the space.</p>
@@ -56,6 +72,16 @@
       </a>
       <a class="btn btn-secondary" data-link="text" href="#">Text me a question</a>
     </div>
+
+    <!-- ===================== SECTION: Quick links (delete from here) ===================== -->
+    <nav class="jump" aria-label="On this page">
+      <a href="#work">Work</a>
+      <a href="#prices">Prices</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <!-- ===================== END SECTION: Quick links ===================== -->
 
     <!-- Featured YouTube video. Set CONFIG.video to null in script.js to hide it. -->
     <section class="panel video-panel" id="video" hidden aria-labelledby="video-title">
@@ -99,7 +125,7 @@
           <span class="service-name">Real estate photo & video</span>
           <span class="chip">Mini 4 Pro</span>
         </summary>
-        <p>High, wide shots of the home, lot and neighborhood, delivered in 4K and ready for your listing.</p>
+        <p>High, wide shots of the home, lot and neighbourhood, delivered in 4K and ready for your listing.</p>
         <a class="ask" data-ask="Real estate photo & video" href="#">Ask about real estate</a>
       </details>
 
@@ -154,10 +180,296 @@
       </ul>
     </section>
 
-    <footer class="foot">
+    <!-- =========================================================================
+         EXTRA SECTIONS
+         Everything below is optional. Each section is wrapped in
+         "SECTION: … (delete from here)" and "END SECTION" comments.
+         Delete a whole block to remove it — nothing else will break.
+         ========================================================================= -->
+
+    <!-- ===================== SECTION: Recent work / gallery (delete from here) ===================== -->
+    <section class="panel" id="work" aria-labelledby="work-title">
+      <h2 id="work-title">Recent work</h2>
+      <p class="lead">A few favourite shots. Tap any photo to see it full size.</p>
+      <!-- Save your photos as assets/gallery/photo-1.jpg, photo-2.jpg … (landscape works best).
+           Any photo that's missing shows a placeholder tile until you add it. -->
+      <div class="gallery">
+        <a class="work" href="assets/gallery/photo-1.jpg" target="_blank" rel="noopener">
+          <img src="assets/gallery/photo-1.jpg" alt="Aerial view of a detached house and garden" loading="lazy" />
+          <span class="work-tag">Real estate</span>
+        </a>
+        <a class="work" href="assets/gallery/photo-2.jpg" target="_blank" rel="noopener">
+          <img src="assets/gallery/photo-2.jpg" alt="Coastline at sunrise from above" loading="lazy" />
+          <span class="work-tag">Landscape</span>
+        </a>
+        <a class="work" href="assets/gallery/photo-3.jpg" target="_blank" rel="noopener">
+          <img src="assets/gallery/photo-3.jpg" alt="Wedding guests photographed from above" loading="lazy" />
+          <span class="work-tag">Events</span>
+        </a>
+        <a class="work" href="assets/gallery/photo-4.jpg" target="_blank" rel="noopener">
+          <img src="assets/gallery/photo-4.jpg" alt="FPV shot flying through a shop entrance" loading="lazy" />
+          <span class="work-tag">FPV</span>
+        </a>
+        <a class="work" href="assets/gallery/photo-5.jpg" target="_blank" rel="noopener">
+          <img src="assets/gallery/photo-5.jpg" alt="Close-up of a roof and chimney" loading="lazy" />
+          <span class="work-tag">Roof check</span>
+        </a>
+        <a class="work" href="assets/gallery/photo-6.jpg" target="_blank" rel="noopener">
+          <img src="assets/gallery/photo-6.jpg" alt="Construction site progress from above" loading="lazy" />
+          <span class="work-tag">Construction</span>
+        </a>
+      </div>
+      <a class="more" data-link="youtube" href="#" target="_blank" rel="noopener">See full videos on YouTube →</a>
+    </section>
+    <!-- ===================== END SECTION: Recent work ===================== -->
+
+
+    <!-- ===================== SECTION: About the pilot (delete from here) ===================== -->
+    <section class="panel about" id="about" aria-labelledby="about-title">
+      <!-- Save a photo of yourself as assets/pilot.jpg (square works best) -->
+      <img class="pilot" src="assets/pilot.jpg" alt="Your name, Happy Drones pilot" width="96" height="96" loading="lazy" />
+      <div>
+        <h2 id="about-title">Meet the pilot</h2>
+        <p>Hi, I'm <strong>Your Name</strong>. Write two or three sentences here about how you got into flying, what you love filming, and why customers enjoy working with you.</p>
+        <ul class="badges">
+          <li>CAA Flyer ID</li>
+          <li>CAA Operator ID</li>
+          <li>Public liability insured</li>
+        </ul>
+      </div>
+    </section>
+    <!-- ===================== END SECTION: About the pilot ===================== -->
+
+
+    <!-- ===================== SECTION: How it works (delete from here) ===================== -->
+    <section class="panel" id="how" aria-labelledby="how-title">
+      <h2 id="how-title">How it works</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <div><strong>Tell me about the job</strong><p>Use the form below or send a message with the location and what you'd like filmed.</p></div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div><strong>I plan the flight</strong><p>I check the airspace, weather and site, then confirm a date and a fixed price.</p></div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div><strong>Fly, edit, deliver</strong><p>You get edited photos and video by download link, ready to post or share.</p></div>
+        </li>
+      </ol>
+    </section>
+    <!-- ===================== END SECTION: How it works ===================== -->
+
+
+    <!-- ===================== SECTION: Prices / packages (delete from here) ===================== -->
+    <!-- EXAMPLE PRICES — change these to your own before going live -->
+    <section class="panel" id="prices" aria-labelledby="prices-title">
+      <h2 id="prices-title">Packages</h2>
+      <div class="packages">
+        <article class="package">
+          <h3>Photo</h3>
+          <p class="price">From £99</p>
+          <ul>
+            <li>Up to 20 edited aerial photos</li>
+            <li>One location, up to 1 hour on site</li>
+            <li>Delivered within 48 hours</li>
+          </ul>
+          <a class="package-btn" data-ask="Photo package" href="#">Book Photo</a>
+        </article>
+        <article class="package package-featured">
+          <span class="ribbon">Most popular</span>
+          <h3>Photo + Video</h3>
+          <p class="price">From £199</p>
+          <ul>
+            <li>Everything in Photo</li>
+            <li>60–90 second edited 4K video</li>
+            <li>Vertical cut for TikTok and Reels</li>
+          </ul>
+          <a class="package-btn" data-ask="Photo + Video package" href="#">Book Photo + Video</a>
+        </article>
+        <article class="package">
+          <h3>FPV fly-through</h3>
+          <p class="price">From £249</p>
+          <ul>
+            <li>One continuous indoor/outdoor flight</li>
+            <li>Planned route and a test run</li>
+            <li>Edited with music, plus a vertical cut</li>
+          </ul>
+          <a class="package-btn" data-ask="FPV fly-through package" href="#">Book FPV</a>
+        </article>
+      </div>
+      <p class="fine">Prices depend on location and travel. Need something different? Ask for a custom quote.</p>
+    </section>
+    <!-- ===================== END SECTION: Prices ===================== -->
+
+
+    <!-- ===================== SECTION: Reviews (delete from here) ===================== -->
+    <!-- Replace these with real reviews from your customers (with their permission). -->
+    <section class="panel" id="reviews" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">What customers say</h2>
+      <div class="reviews">
+        <figure class="review">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>Your customer's review goes here. Keep it to two or three sentences.</blockquote>
+          <figcaption>Customer name · Real estate</figcaption>
+        </figure>
+        <figure class="review">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>A second review goes here. Reviews that mention a result, like a faster house sale, work best.</blockquote>
+          <figcaption>Customer name · Event</figcaption>
+        </figure>
+        <figure class="review">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>A third review goes here. Short and specific beats long and general.</blockquote>
+          <figcaption>Customer name · Business</figcaption>
+        </figure>
+      </div>
+      <a class="more" data-link="reviews" href="#" target="_blank" rel="noopener">Leave a review →</a>
+    </section>
+    <!-- ===================== END SECTION: Reviews ===================== -->
+
+
+    <!-- ===================== SECTION: Service area (delete from here) ===================== -->
+    <section class="panel" id="area" aria-labelledby="area-title">
+      <h2 id="area-title">Where I fly</h2>
+      <p class="lead">Based in <strong>Your Town</strong> and happy to travel. Jobs further away may include a small travel fee.</p>
+      <ul class="towns">
+        <li>Town one</li>
+        <li>Town two</li>
+        <li>Town three</li>
+        <li>Town four</li>
+        <li>Town five</li>
+        <li>And nearby</li>
+      </ul>
+    </section>
+    <!-- ===================== END SECTION: Service area ===================== -->
+
+
+    <!-- ===================== SECTION: FAQ (delete from here) ===================== -->
+    <section class="panel" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions</h2>
+
+      <details class="service">
+        <summary><span class="service-name">Are you legal and insured?</span></summary>
+        <p>Yes. I hold a CAA Flyer ID and Operator ID and carry public liability insurance. I'm happy to share certificates before any job.</p>
+      </details>
+
+      <details class="service">
+        <summary><span class="service-name">What happens if the weather is bad?</span></summary>
+        <p>Drones can't fly safely in rain or strong wind. If the forecast is poor, we simply move the flight to the next good day at no extra cost.</p>
+      </details>
+
+      <details class="service">
+        <summary><span class="service-name">Can you fly anywhere?</span></summary>
+        <p>Most places, yes. Some areas near airports, prisons or busy events need permission or have restrictions. I check the airspace before every job and will tell you straight away if there's an issue.</p>
+      </details>
+
+      <details class="service">
+        <summary><span class="service-name">How quickly will I get my photos and video?</span></summary>
+        <p>Photos usually arrive within 48 hours and edited video within 5 working days, sent as a download link.</p>
+      </details>
+
+      <details class="service">
+        <summary><span class="service-name">Can I use the footage on social media and in adverts?</span></summary>
+        <p>Yes. You're free to use everything I deliver for your business, listing or event. I may share some shots in my own portfolio unless you'd rather I didn't.</p>
+      </details>
+
+      <details class="service">
+        <summary><span class="service-name">Do you fly indoors?</span></summary>
+        <p>Yes, with the Avata 2. Its protected propellers make it suited to smooth fly-throughs of homes, shops, gyms and venues.</p>
+      </details>
+    </section>
+    <!-- ===================== END SECTION: FAQ ===================== -->
+
+
+    <!-- ===================== SECTION: Contact form (delete from here) =====================
+         This uses Netlify Forms: submissions appear in your Netlify dashboard under Forms,
+         and you can switch on email notifications there. If you delete this section,
+         the "Book" and "Ask about" buttons automatically go back to using email. -->
+    <section class="panel" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Get a quote</h2>
+      <p class="lead">Tell me a little about the job and I'll reply within a day.</p>
+
+      <form class="contact" name="contact" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden-field"><label>Leave this empty: <input name="bot-field" /></label></p>
+
+        <label class="field">
+          <span>Your name</span>
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label class="field">
+            <span>Phone <em>(optional)</em></span>
+            <input type="tel" name="phone" autocomplete="tel" />
+          </label>
+        </div>
+        <label class="field">
+          <span>What do you need?</span>
+          <select name="service" id="service-select" required>
+            <option value="">Choose one</option>
+            <option>Real estate photo & video</option>
+            <option>FPV fly-through tour</option>
+            <option>Event coverage</option>
+            <option>Social media content</option>
+            <option>Roof & property check</option>
+            <option>Photo package</option>
+            <option>Photo + Video package</option>
+            <option>FPV fly-through package</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span>Location / postcode</span>
+            <input type="text" name="location" autocomplete="postal-code" />
+          </label>
+          <label class="field">
+            <span>Preferred date</span>
+            <input type="date" name="date" id="date-input" />
+          </label>
+        </div>
+        <label class="field">
+          <span>Anything else?</span>
+          <textarea name="message" rows="4"></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Send enquiry</button>
+      </form>
+    </section>
+    <!-- ===================== END SECTION: Contact form ===================== -->
+
+
+    <!-- ===================== SECTION: Footer ===================== -->
+    <footer class="footer">
+      <img class="footer-logo" src="assets/logo.png" alt="Happy Drones" width="1407" height="489" loading="lazy" />
+      <p class="footer-tag">Aerial photo, video and FPV fly-throughs.</p>
+
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#work">Work</a>
+        <a href="#prices">Prices</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+
+      <p class="footer-contact">
+        <a data-link="email" href="#" data-show="email"></a>
+        <a data-link="call" href="#" data-show="phone"></a>
+      </p>
+
       <p data-field="credentials">Certified and insured drone pilot</p>
-      <p>&copy; <span id="year"></span> Happy Drones</p>
+      <p class="footer-small">&copy; <span class="year"></span> Happy Drones. All rights reserved.</p>
+      <!-- If you register as a company, add your company number and registered address here. -->
+
+      <a class="to-top" href="#top">Back to top ↑</a>
     </footer>
+    <!-- ===================== END SECTION: Footer ===================== -->
+
   </main>
 
   <div class="toast" role="status" aria-live="polite"></div>
