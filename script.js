@@ -16,17 +16,17 @@ const CONFIG = {
   email: "hello@happydrones.com",        // "Book a flight" and "Ask about…" go here
   phone: "+15555550123",                 // "Text me a question" (digits with country code)
 
-  youtube:  "https://www.youtube.com/@happydrones",
+  youtube:  "https://www.youtube.com/@happy-drones",
   tiktok:   "https://www.tiktok.com/@happydrones",
-  facebook: "https://www.facebook.com/happydrones",
-  x:        "https://x.com/happydrones",
+  facebook: "https://www.facebook.com/happydrones1",
+  x:        "https://x.com/happydrones1",
 
   // Where customers leave reviews (your Google Business or Facebook reviews link).
   reviewsUrl: "https://www.facebook.com/happydrones/reviews",
 
   // Optional: send "Book a flight" to a booking page (Calendly, etc.).
   // Leave "" to use the contact form on the page (or email if you deleted the form).
-  bookingUrl: "",
+  bookingUrl: "https://www.facebook.com/happydrones1",
 
   area: "Serving your city and nearby",             // e.g. "Serving Teesside and North Yorkshire"
   credentials: "Certified and insured drone pilot", // e.g. "CAA Flyer & Operator ID · Insured"
